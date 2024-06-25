@@ -8,7 +8,6 @@ using OnlineShopStore.Application.Query.Contracts.Queries;
 using OnlineShopStore.Domain.DomainModel.Repositories;
 using OnlineShopStore.Infrastructure.Enums;
 using OnlineShopStore.Infrastructure.Shared;
-using OnlineStore.Infrastructure.Persistence.UnitOfWork;
 
 namespace OnlineShopStore.Application.Query.Implementation
 {

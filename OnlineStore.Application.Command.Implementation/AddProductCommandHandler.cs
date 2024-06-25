@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using OnlineShopStore.Application.Command.Contracts.Commands;
+using OnlineShopStore.Domain.DomainModel.Models.Product;
 using OnlineShopStore.Domain.DomainModel.Repositories;
 using OnlineShopStore.Infrastructure.Enums;
 using OnlineShopStore.Infrastructure.Persistence.UnitOfWork;
 using OnlineShopStore.Infrastructure.Shared;
-using OnlineStore.Domain.DomainModel.Models.Product;
 
 namespace OnlineShopStore.Application.Command.Implementation
 {

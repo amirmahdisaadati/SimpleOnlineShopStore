@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopStore.Application.Command.Contracts.Commands;
+using OnlineShopStore.Domain.DomainModel.Models.Order;
 using OnlineShopStore.Domain.DomainModel.Repositories;
 using OnlineShopStore.Infrastructure.Enums;
 using OnlineShopStore.Infrastructure.Persistence.Context;
 using OnlineShopStore.Infrastructure.Persistence.UnitOfWork;
 using OnlineShopStore.Infrastructure.Shared;
-using OnlineStore.Domain.DomainModel.Models.Order;
 
 namespace OnlineShopStore.Application.Command.Implementation
 {

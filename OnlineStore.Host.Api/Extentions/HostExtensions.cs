@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineShopStore.Infrastructure.Enums;
 using OnlineShopStore.Infrastructure.Shared;
-using OnlineStore.Infrastructure.Persistence.Context;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace OnlineShopStore.Host.Api.Extentions

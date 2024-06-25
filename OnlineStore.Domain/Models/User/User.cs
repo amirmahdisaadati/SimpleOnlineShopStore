@@ -5,7 +5,7 @@ using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using OnlineShopStore.Domain.DomainModel.Models.Order;
-using OnlineStore.Domain.DomainModel.Models.User.Exeptions;
+using OnlineShopStore.Domain.DomainModel.Models.User.Exeptions;
 
 namespace OnlineShopStore.Domain.DomainModel.Models.User
 {
@@ -19,15 +19,15 @@ namespace OnlineShopStore.Domain.DomainModel.Models.User
         public long Id { get; private set; }
         public string Name { get; private set; }
 
-        private readonly List<Order> _orders = new();
-        public IEnumerable<Order> Orders => _orders.AsReadOnly();
+        private readonly List<Order.Order> _orders = new();
+        public IEnumerable<Order.Order> Orders => _orders.AsReadOnly();
 
 
 
 
         #region Methods
 
-        public void Buy(Order order)
+        public void Buy(Order.Order order)
         {
             _orders.Add(order);
             order.Product.DecreaseInventoryCount();

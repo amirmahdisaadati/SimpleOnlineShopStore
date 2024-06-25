@@ -1,4 +1,4 @@
-﻿using OnlineStore.Domain.DomainModel.Models.Product.Exceptions;
+﻿using OnlineShopStore.Domain.DomainModel.Models.Product.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

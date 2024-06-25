@@ -1,6 +1,6 @@
 ﻿using System;
 using OnlineShopStore.Domain.DomainModel.Exception;
-using OnlineStore.Infrastructure.Shared;
+using OnlineShopStore.Infrastructure.Shared;
 
 namespace OnlineShopStore.Host.Api.Middlewares
 {
