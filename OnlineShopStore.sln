@@ -15,25 +15,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{6885513E-BDF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{12FC24B5-8A95-4F88-BDD7-0B60FDF2A740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Domain.DomainModel", "OnlineStore.Domain\OnlineStore.Domain.DomainModel.csproj", "{ADACE3C7-0AD1-4BE5-B9E0-F807E52EE0DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopStore.Domain.DomainModel", "OnlineStore.Domain\OnlineShopStore.Domain.DomainModel.csproj", "{ADACE3C7-0AD1-4BE5-B9E0-F807E52EE0DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Infrastructure.Persistence", "OnlineStore.Infrastructure.Persistence\OnlineStore.Infrastructure.Persistence.csproj", "{EA05A628-53B5-4C6C-ABF8-6595683F13B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopStore.Infrastructure.Persistence", "OnlineStore.Infrastructure.Persistence\OnlineShopStore.Infrastructure.Persistence.csproj", "{EA05A628-53B5-4C6C-ABF8-6595683F13B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Host.Api", "OnlineStore.Host.Api\OnlineStore.Host.Api.csproj", "{EBF68E17-2158-418F-8E7A-1C617663A01E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopStore.Host.Api", "OnlineStore.Host.Api\OnlineShopStore.Host.Api.csproj", "{EBF68E17-2158-418F-8E7A-1C617663A01E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Command", "Command", "{B7E95832-9D0A-41D7-8C30-8AC70797215B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Query", "Query", "{13E5029F-9895-451E-8ACC-E4FA2B02B858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Application.Command.Contracts", "OnlineStore.Application.Command.Contracts\OnlineStore.Application.Command.Contracts.csproj", "{F7C7280A-B3F1-4594-9DF5-34F3A7A044E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopStore.Application.Command.Contracts", "OnlineStore.Application.Command.Contracts\OnlineShopStore.Application.Command.Contracts.csproj", "{F7C7280A-B3F1-4594-9DF5-34F3A7A044E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Application.Command.Implementation", "OnlineStore.Application.Command.Implementation\OnlineStore.Application.Command.Implementation.csproj", "{C69F0026-81E7-462A-8B13-18DAED1BA589}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopStore.Application.Command.Implementation", "OnlineStore.Application.Command.Implementation\OnlineShopStore.Application.Command.Implementation.csproj", "{C69F0026-81E7-462A-8B13-18DAED1BA589}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Application.Query.Contracts", "OnlineStore.Application.Query.Contracts\OnlineStore.Application.Query.Contracts.csproj", "{C592B3A7-0E78-4E78-8A70-F69651D78CF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopStore.Application.Query.Contracts", "OnlineStore.Application.Query.Contracts\OnlineShopStore.Application.Query.Contracts.csproj", "{C592B3A7-0E78-4E78-8A70-F69651D78CF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Application.Query.Implementation", "OnlineStore.Application.Query.Implementation\OnlineStore.Application.Query.Implementation.csproj", "{D08D4C84-F094-4945-8748-36A9BA6C152B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopStore.Application.Query.Implementation", "OnlineStore.Application.Query.Implementation\OnlineShopStore.Application.Query.Implementation.csproj", "{D08D4C84-F094-4945-8748-36A9BA6C152B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Infrastructure", "OnlineStore.Infrastructure\OnlineStore.Infrastructure.csproj", "{3F52AC39-462E-48AE-B742-01F76479C5A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopStore.Infrastructure", "OnlineStore.Infrastructure\OnlineShopStore.Infrastructure.csproj", "{3F52AC39-462E-48AE-B742-01F76479C5A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

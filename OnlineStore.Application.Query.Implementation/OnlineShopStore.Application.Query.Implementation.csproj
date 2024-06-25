@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnlineStore.Infrastructure\OnlineStore.Infrastructure.csproj" />
+    <ProjectReference Include="..\OnlineStore.Application.Query.Contracts\OnlineShopStore.Application.Query.Contracts.csproj" />
+    <ProjectReference Include="..\OnlineStore.Infrastructure.Persistence\OnlineShopStore.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
