@@ -12,6 +12,7 @@ public class Program
     public static void Main(string[] args)
     {
         var hostAddresses = ReadHostAddresses();
+
         CreateWebHostBuilder(args).UseUrls(hostAddresses.HostAddress).Build().Seed().Run();
     }
 

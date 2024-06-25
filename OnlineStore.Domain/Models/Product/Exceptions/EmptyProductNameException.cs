@@ -9,7 +9,7 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product.Exceptions
 {
     public class EmptyProductNameException : System.Exception, IDomainException
     {
-        public EmptyProductNameException(string message = "نام محصول نمیتواند خالی باشد")
+        public EmptyProductNameException(string message = "نام محصول نمیتواند خالی باشد"):base(message)
         {
 
         }

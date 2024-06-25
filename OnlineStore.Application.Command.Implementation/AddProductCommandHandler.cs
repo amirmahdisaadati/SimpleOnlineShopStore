@@ -25,6 +25,7 @@ namespace OnlineShopStore.Application.Command.Implementation
         }
         public async Task<Result<AddProductResponse>> Handle(AddProductCommand request, CancellationToken cancellationToken)
         {
+            
             var isProductTitleUnique = await _productRepository.IsUniqueNameAsync(request.Title);
             if (!isProductTitleUnique)
                 return new Result<AddProductResponse>(OperationResult.NotValid) { Error = "Product Name Must Be Unique" };

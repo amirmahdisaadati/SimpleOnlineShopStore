@@ -9,7 +9,7 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product.Exceptions
 {
     public class InvalidProductPriceException : System.Exception, IDomainException
     {
-        public InvalidProductPriceException(string message = "قیمت محصول نامعتبر است")
+        public InvalidProductPriceException(string message = "قیمت محصول نامعتبر است"): base(message)
         {
 
         }

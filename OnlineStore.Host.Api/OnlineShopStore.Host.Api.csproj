@@ -17,7 +17,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OnlineStore.Application.Command.Contracts\OnlineShopStore.Application.Command.Contracts.csproj" />
+    <ProjectReference Include="..\OnlineStore.Application.Command.Implementation\OnlineShopStore.Application.Command.Implementation.csproj" />
     <ProjectReference Include="..\OnlineStore.Application.Query.Contracts\OnlineShopStore.Application.Query.Contracts.csproj" />
+    <ProjectReference Include="..\OnlineStore.Application.Query.Implementation\OnlineShopStore.Application.Query.Implementation.csproj" />
     <ProjectReference Include="..\OnlineStore.Infrastructure.Persistence\OnlineShopStore.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\OnlineStore.Infrastructure\OnlineShopStore.Infrastructure.csproj" />
   </ItemGroup>

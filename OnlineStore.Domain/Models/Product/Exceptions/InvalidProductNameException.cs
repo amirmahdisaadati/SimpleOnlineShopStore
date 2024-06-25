@@ -9,7 +9,7 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product.Exceptions
 {
     public class InvalidProductNameException : System.Exception, IDomainException
     {
-        public InvalidProductNameException(string message = "نام محصول بیشتر از 40 کاراکتر است")
+        public InvalidProductNameException(string message = "نام محصول بیشتر از 40 کاراکتر است"): base(message)
         {
 
         }

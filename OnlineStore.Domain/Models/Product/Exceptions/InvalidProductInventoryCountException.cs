@@ -9,7 +9,7 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product.Exceptions
 {
     public class InvalidProductInventoryCountException : System.Exception, IDomainException
     {
-        public InvalidProductInventoryCountException(string message = "موجودی محصول نمیتواند کمتر از صفر باشد")
+        public InvalidProductInventoryCountException(string message = "موجودی محصول نمیتواند کمتر از صفر باشد"): base(message)
         {
 
         }

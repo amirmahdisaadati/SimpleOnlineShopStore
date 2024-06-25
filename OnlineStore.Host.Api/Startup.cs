@@ -9,6 +9,11 @@ using OnlineShopStore.Infrastructure.AppSetting;
 using OnlineShopStore.Infrastructure.Persistence.UnitOfWork;
 using OnlineShopStore.Infrastructure.Persistence.Repositories;
 using OnlineShopStore.Infrastructure.Persistence.Context;
+using MediatR;
+using OnlineShopStore.Application.Command.Contracts.Commands;
+using Microsoft.Extensions.DependencyInjection;
+using OnlineShopStore.Application.Command.Implementation;
+using OnlineShopStore.Application.Query.Implementation;
 
 namespace OnlineShopStore.Host.Api
 {
@@ -74,8 +79,8 @@ namespace OnlineShopStore.Host.Api
         private void ConfigureMediator(IServiceCollection services)
         {
 
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(BuyCommandHandler).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetProductByIdQueryHandler).Assembly));
 
         }
 

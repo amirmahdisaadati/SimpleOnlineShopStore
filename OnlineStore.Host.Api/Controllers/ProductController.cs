@@ -32,5 +32,12 @@ namespace OnlineShopStore.Host.Api.Controllers
             var result = await _mediator.Send(request);
             return result.HttpResult(result.Data);
         }
+
+        [HttpPost("add")]
+        public async Task<ActionResult<AddProductResponse>> AddProduct([FromBody] AddProductCommand request)
+        {
+            var result = await _mediator.Send(request);
+            return result.HttpResult(result.Data);  
+        }
     }
 }
