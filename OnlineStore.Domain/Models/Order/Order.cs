@@ -22,5 +22,13 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Order
         public long ProductId { get; private set; }
 
 
+        /// <summary>
+        /// For EF
+        /// </summary>
+        private Order()
+        {
+            
+        }
+
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using OnlineShopStore.Domain.DomainModel.Models.User;
 using OnlineShopStore.Domain.DomainModel.Repositories;
 using OnlineShopStore.Host.Api.Middlewares;
 using OnlineShopStore.Infrastructure.AppSetting;
@@ -86,6 +87,8 @@ namespace OnlineShopStore.Host.Api
         {
 
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
         }
 

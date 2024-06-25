@@ -46,6 +46,12 @@ namespace OnlineShopStore.Domain.DomainModel.Models.User
 
 
         #endregion
-
+        /// <summary>
+        /// For EF
+        /// </summary>
+        private User()
+        {
+            
+        }
     }
 }

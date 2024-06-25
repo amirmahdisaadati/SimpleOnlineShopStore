@@ -74,5 +74,12 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product
         }
 
         #endregion
+        /// <summary>
+        /// For EF
+        /// </summary>
+        private Product()
+        {
+            
+        }
     }
 }
