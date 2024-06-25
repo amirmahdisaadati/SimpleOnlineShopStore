@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using OnlineStore.Application.Query.Contracts.Queries;
-using OnlineStore.Domain.DomainModel.Repositories;
-using OnlineStore.Infrastructure.Enums;
+using OnlineShopStore.Application.Query.Contracts.Queries;
+using OnlineShopStore.Domain.DomainModel.Repositories;
+using OnlineShopStore.Infrastructure.Enums;
+using OnlineShopStore.Infrastructure.Shared;
 using OnlineStore.Infrastructure.Persistence.UnitOfWork;
-using OnlineStore.Infrastructure.Shared;
 
-namespace OnlineStore.Application.Query.Implementation
+namespace OnlineShopStore.Application.Query.Implementation
 {
-    public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery,Result<GetProductByIdResponse>>
+    public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, Result<GetProductByIdResponse>>
     {
 
         private readonly IProductRepository _productRepository;
@@ -25,7 +25,7 @@ namespace OnlineStore.Application.Query.Implementation
         public async Task<Result<GetProductByIdResponse>> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.Get(request.ProductId);
-            if(product is null)
+            if (product is null)
                 return new Result<GetProductByIdResponse>(OperationResult.NotFound) { Error = "Product was not found" };
             return new Result<GetProductByIdResponse>(OperationResult.Succeeded)
             {

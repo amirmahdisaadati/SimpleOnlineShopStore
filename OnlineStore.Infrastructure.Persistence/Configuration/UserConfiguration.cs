@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using OnlineStore.Domain.DomainModel.Models.User;
+using OnlineShopStore.Domain.DomainModel.Models.User;
 
-namespace OnlineStore.Infrastructure.Persistence.Configuration
+namespace OnlineShopStore.Infrastructure.Persistence.Configuration
 {
-    public class UserConfiguration:IEntityTypeConfiguration<User>
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {

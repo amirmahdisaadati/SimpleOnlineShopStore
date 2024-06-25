@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStore.Infrastructure.Cache
+namespace OnlineShopStore.Infrastructure.Cache
 {
     public interface ICacheProvider
     {

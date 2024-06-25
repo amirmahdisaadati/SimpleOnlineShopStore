@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using OnlineStore.Domain.DomainModel.Models.Order;
+using OnlineShopStore.Domain.DomainModel.Models.Order;
 
-namespace OnlineStore.Infrastructure.Persistence.Configuration
+namespace OnlineShopStore.Infrastructure.Persistence.Configuration
 {
-     public class OrderConfiguration:IEntityTypeConfiguration<Order>
+    public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {

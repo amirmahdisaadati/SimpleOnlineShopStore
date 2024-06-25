@@ -1,14 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineStore.Application.Command.Contracts.Commands;
-using OnlineStore.Application.Query.Contracts.Queries;
-using OnlineStore.Host.Api.Extentions;
+using OnlineShopStore.Application.Command.Contracts.Commands;
+using OnlineShopStore.Application.Query.Contracts.Queries;
+using OnlineShopStore.Host.Api.Extentions;
 
-namespace OnlineStore.Host.Api.Controllers
+namespace OnlineShopStore.Host.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ProductController: ControllerBase
+    public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;
 

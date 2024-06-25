@@ -1,11 +1,11 @@
-﻿using OnlineStore.Infrastructure.Enums;
+﻿using OnlineShopStore.Infrastructure.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStore.Infrastructure.Shared
+namespace OnlineShopStore.Infrastructure.Shared
 {
     public class Result
     {

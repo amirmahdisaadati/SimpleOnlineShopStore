@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using OnlineStore.Domain.DomainModel.Repositories;
-using OnlineStore.Infrastructure.Persistence.Context;
+using OnlineShopStore.Domain.DomainModel.Repositories;
+using OnlineShopStore.Infrastructure.Persistence.Context;
 
-namespace OnlineStore.Infrastructure.Persistence.Repositories
+namespace OnlineShopStore.Infrastructure.Persistence.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class?
     {
@@ -23,7 +23,7 @@ namespace OnlineStore.Infrastructure.Persistence.Repositories
             await Context.Set<T>().AddAsync(entity);
         }
 
-        public  void Delete(T entity)
+        public void Delete(T entity)
         {
             Context.Set<T>().Remove(entity);
         }
@@ -38,6 +38,6 @@ namespace OnlineStore.Infrastructure.Persistence.Repositories
             return await Context.Set<T>().ToListAsync();
         }
 
-       
+
     }
 }

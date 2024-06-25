@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStore.Infrastructure.Persistence.UnitOfWork
+namespace OnlineShopStore.Infrastructure.Persistence.UnitOfWork
 {
     public interface IUnitOfWork
     {

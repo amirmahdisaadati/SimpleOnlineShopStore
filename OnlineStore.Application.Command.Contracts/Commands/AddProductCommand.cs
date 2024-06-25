@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using OnlineStore.Infrastructure.Shared;
+using OnlineShopStore.Infrastructure.Shared;
 
-namespace OnlineStore.Application.Command.Contracts.Commands
+namespace OnlineShopStore.Application.Command.Contracts.Commands
 {
-    public class AddProductCommand:IRequest<Result<AddProductResponse>>
+    public class AddProductCommand : IRequest<Result<AddProductResponse>>
 
     {
-    public string Title { get; set; }
-    public decimal Price { get; set; }
-    public decimal Discount { get; set; }
+        public string Title { get; set; }
+        public decimal Price { get; set; }
+        public decimal Discount { get; set; }
 
-    public int InventoryCount { get; set; }
+        public int InventoryCount { get; set; }
     }
 
     public class AddProductResponse

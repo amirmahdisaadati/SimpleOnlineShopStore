@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OnlineStore.Domain.DomainModel.Models.Product;
+using OnlineShopStore.Domain.DomainModel.Models.Product;
 
-namespace OnlineStore.Domain.DomainModel.Repositories
+namespace OnlineShopStore.Domain.DomainModel.Repositories
 {
-    public  interface IProductRepository:IRepository<Product>
+    public interface IProductRepository : IRepository<Product>
     {
-         Task<bool> IsUniqueNameAsync(string title);
+        Task<bool> IsUniqueNameAsync(string title);
     }
 }

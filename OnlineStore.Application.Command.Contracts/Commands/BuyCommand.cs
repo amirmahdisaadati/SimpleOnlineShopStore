@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using OnlineStore.Infrastructure.Shared;
+using OnlineShopStore.Infrastructure.Shared;
 
-namespace OnlineStore.Application.Command.Contracts.Commands
+namespace OnlineShopStore.Application.Command.Contracts.Commands
 {
-    public class BuyCommand:IRequest<Result<BuyResponse>>
+    public class BuyCommand : IRequest<Result<BuyResponse>>
     {
         public long UserId { get; set; }
-        public  long ProductId { get; set; }
+        public long ProductId { get; set; }
 
     }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStore.Infrastructure.Shared
+namespace OnlineShopStore.Infrastructure.Shared
 {
     public class Error
     {

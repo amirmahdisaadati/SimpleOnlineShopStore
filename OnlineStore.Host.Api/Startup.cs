@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
-using OnlineStore.Infrastructure.AppSetting;
-using OnlineStore.Infrastructure.Persistence.Context;
 using System.Reflection;
-using OnlineStore.Domain.DomainModel.Repositories;
-using OnlineStore.Host.Api.Middlewares;
-using OnlineStore.Infrastructure.Persistence.Repositories;
-using OnlineStore.Infrastructure.Persistence.UnitOfWork;
+using OnlineShopStore.Domain.DomainModel.Repositories;
+using OnlineShopStore.Host.Api.Middlewares;
+using OnlineShopStore.Infrastructure.AppSetting;
+using OnlineShopStore.Infrastructure.Persistence.UnitOfWork;
+using OnlineShopStore.Infrastructure.Persistence.Repositories;
+using OnlineShopStore.Infrastructure.Persistence.Context;
 
-namespace OnlineStore.Host.Api
+namespace OnlineShopStore.Host.Api
 {
     public class Startup
     {
@@ -41,7 +41,7 @@ namespace OnlineStore.Host.Api
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Simple  Online Shop ");
                 });
             }
-                
+
             app.UseRouting();
             app.UseMiddleware<ApplicationExceptionMiddleware>();
 
@@ -61,7 +61,7 @@ namespace OnlineStore.Host.Api
                 options.UseSqlServer(Configuration.GetConnectionString("Db")));
         }
 
-        private void ConfigureApplicationSwagger( IServiceCollection services)
+        private void ConfigureApplicationSwagger(IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
             {
@@ -78,7 +78,7 @@ namespace OnlineStore.Host.Api
 
         }
 
-        private  void ConfigureUnitOfWork(IServiceCollection services)
+        private void ConfigureUnitOfWork(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

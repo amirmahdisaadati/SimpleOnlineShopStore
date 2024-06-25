@@ -1,8 +1,8 @@
 ﻿using System;
-using OnlineStore.Domain.DomainModel.Exception;
+using OnlineShopStore.Domain.DomainModel.Exception;
 using OnlineStore.Infrastructure.Shared;
 
-namespace OnlineStore.Host.Api.Middlewares
+namespace OnlineShopStore.Host.Api.Middlewares
 {
     public class ApplicationExceptionMiddleware
     {

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using OnlineStore.Application.Command.Contracts.Commands;
+using OnlineShopStore.Application.Command.Contracts.Commands;
+using OnlineShopStore.Domain.DomainModel.Repositories;
+using OnlineShopStore.Infrastructure.Enums;
+using OnlineShopStore.Infrastructure.Persistence.UnitOfWork;
+using OnlineShopStore.Infrastructure.Shared;
 using OnlineStore.Domain.DomainModel.Models.Product;
-using OnlineStore.Domain.DomainModel.Repositories;
-using OnlineStore.Infrastructure.Enums;
-using OnlineStore.Infrastructure.Persistence.UnitOfWork;
-using OnlineStore.Infrastructure.Shared;
 
-namespace OnlineStore.Application.Command.Implementation
+namespace OnlineShopStore.Application.Command.Implementation
 {
     public class AddProductCommandHandler : IRequestHandler<AddProductCommand, Result<AddProductResponse>>
     {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using OnlineStore.Infrastructure.Shared;
+using OnlineShopStore.Infrastructure.Shared;
 
-namespace OnlineStore.Application.Query.Contracts.Queries
+namespace OnlineShopStore.Application.Query.Contracts.Queries
 {
-    public class GetProductByIdQuery: IRequest<Result<GetProductByIdResponse>>
+    public class GetProductByIdQuery : IRequest<Result<GetProductByIdResponse>>
     {
         public long ProductId { get; set; }
     }

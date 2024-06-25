@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using RedLockNet.SERedis;
 using StackExchange.Redis;
 
-namespace OnlineStore.Infrastructure.Cache
+namespace OnlineShopStore.Infrastructure.Cache
 {
-    public class RedisCacheProvider:ICacheProvider
+    public class RedisCacheProvider : ICacheProvider
     {
         private readonly RedLockFactory _redLockFactory;
         private readonly IDatabase _database;

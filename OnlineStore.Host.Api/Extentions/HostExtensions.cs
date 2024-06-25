@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OnlineStore.Infrastructure.Enums;
+using OnlineShopStore.Infrastructure.Enums;
+using OnlineShopStore.Infrastructure.Shared;
 using OnlineStore.Infrastructure.Persistence.Context;
-using OnlineStore.Infrastructure.Shared;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace OnlineStore.Host.Api.Extentions
+namespace OnlineShopStore.Host.Api.Extentions
 {
     public static class HostExtensions
     {

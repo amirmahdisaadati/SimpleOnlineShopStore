@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStore.Domain.DomainModel.Exception
+namespace OnlineShopStore.Domain.DomainModel.Exception
 {
-    public  interface IDomainException
+    public interface IDomainException
     {
     }
 }

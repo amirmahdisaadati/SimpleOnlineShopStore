@@ -4,34 +4,35 @@ using System.Linq;
 using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
+using OnlineShopStore.Domain.DomainModel.Models.Order;
 using OnlineStore.Domain.DomainModel.Models.User.Exeptions;
 
-namespace OnlineStore.Domain.DomainModel.Models.User
+namespace OnlineShopStore.Domain.DomainModel.Models.User
 {
     public class User
     {
         public User(string name)
         {
             ValidateUserName(name);
-                this.Name = name;
+            Name = name;
         }
         public long Id { get; private set; }
-        public  string Name { get; private  set; }
+        public string Name { get; private set; }
 
-        private readonly List<Order.Order> _orders = new();
-        public IEnumerable<Order.Order> Orders=> _orders.AsReadOnly();
+        private readonly List<Order> _orders = new();
+        public IEnumerable<Order> Orders => _orders.AsReadOnly();
 
 
 
 
         #region Methods
 
-        public void Buy(Order.Order order)
+        public void Buy(Order order)
         {
-            this._orders.Add(order);
+            _orders.Add(order);
             order.Product.DecreaseInventoryCount();
         }
-        
+
 
         #endregion
 
@@ -42,7 +43,7 @@ namespace OnlineStore.Domain.DomainModel.Models.User
             if (string.IsNullOrWhiteSpace(userName))
                 throw new EmptyUserNameException();
         }
-        
+
 
         #endregion
 

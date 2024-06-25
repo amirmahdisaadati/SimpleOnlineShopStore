@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore;
-using OnlineStore.Host.Api;
-using OnlineStore.Host.Api.Activator;
-using OnlineStore.Infrastructure.AppSetting;
+using OnlineShopStore.Host.Api.Activator;
+using OnlineShopStore.Host.Api;
+using OnlineShopStore.Infrastructure.AppSetting;
 
 public class Program
 {

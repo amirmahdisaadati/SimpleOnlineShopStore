@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using OnlineStore.Application.Command.Contracts.Commands;
+using OnlineShopStore.Application.Command.Contracts.Commands;
+using OnlineShopStore.Domain.DomainModel.Repositories;
+using OnlineShopStore.Infrastructure.Enums;
+using OnlineShopStore.Infrastructure.Persistence.Context;
+using OnlineShopStore.Infrastructure.Persistence.UnitOfWork;
+using OnlineShopStore.Infrastructure.Shared;
 using OnlineStore.Domain.DomainModel.Models.Order;
-using OnlineStore.Domain.DomainModel.Repositories;
-using OnlineStore.Infrastructure.Enums;
-using OnlineStore.Infrastructure.Persistence.Context;
-using OnlineStore.Infrastructure.Persistence.UnitOfWork;
-using OnlineStore.Infrastructure.Shared;
 
-namespace OnlineStore.Application.Command.Implementation
+namespace OnlineShopStore.Application.Command.Implementation
 {
     public class BuyCommandHandler : IRequestHandler<BuyCommand, Result<BuyResponse>>
     {
@@ -53,7 +53,7 @@ namespace OnlineStore.Application.Command.Implementation
             {
                 return new Result<BuyResponse>(OperationResult.Failed) { Error = "A concurrency error occurred. Please try again." };
             }
-           
+
         }
     }
 }

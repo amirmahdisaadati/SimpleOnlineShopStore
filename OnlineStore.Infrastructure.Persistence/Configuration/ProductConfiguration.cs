@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using OnlineStore.Domain.DomainModel.Models.Product;
+using OnlineShopStore.Domain.DomainModel.Models.Product;
 
-namespace OnlineStore.Infrastructure.Persistence.Configuration
+namespace OnlineShopStore.Infrastructure.Persistence.Configuration
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {

@@ -1,13 +1,13 @@
-﻿using OnlineStore.Infrastructure.Persistence.Context;
+﻿using OnlineShopStore.Infrastructure.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStore.Infrastructure.Persistence.UnitOfWork
+namespace OnlineShopStore.Infrastructure.Persistence.UnitOfWork
 {
-    public  class UnitOfWork: IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly DatabaseContext _context;
 

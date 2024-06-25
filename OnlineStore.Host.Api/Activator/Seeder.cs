@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OnlineStore.Infrastructure.Persistence.Context;
+using OnlineShopStore.Infrastructure.Persistence.Context;
 
-
-namespace OnlineStore.Host.Api.Activator
+namespace OnlineShopStore.Host.Api.Activator
 {
     public static class Seeder
     {
