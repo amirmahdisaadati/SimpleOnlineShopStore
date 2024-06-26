@@ -33,6 +33,11 @@ namespace OnlineShopStore.Domain.DomainModel.Models.User
             order.Product.DecreaseInventoryCount();
         }
 
+        public void SetIdForSeeding(long id)
+        {
+            this.Id = id;
+        }
+
 
         #endregion
 
@@ -49,9 +54,11 @@ namespace OnlineShopStore.Domain.DomainModel.Models.User
         /// <summary>
         /// For EF
         /// </summary>
-        private User()
+        protected User()
         {
             
         }
+       
+
     }
 }

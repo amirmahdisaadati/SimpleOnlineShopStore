@@ -17,6 +17,11 @@ namespace OnlineShopStore.Infrastructure.Persistence.Configuration
             builder.HasKey(u => u.Id);
             builder.Property(u => u.Name)
                 .IsRequired();
+            var alice = new User("Alice");
+            alice.SetIdForSeeding(2);
+            var bob = new User("Bob");
+            bob.SetIdForSeeding(3);
+            builder.HasData(alice, bob);
         }
     }
 }
