@@ -48,6 +48,10 @@ namespace OnlineShopStore.Application.Command.Implementation
             {
                 product = cacheProduct;
             }
+
+            if (product is null)
+                return new Result<BuyResponse>(OperationResult.NotFound) { Error = "Product Not Found" };
+
             var order = new Order(user, product);
             user.Buy(order);
             await _orderRepository.Add(order);

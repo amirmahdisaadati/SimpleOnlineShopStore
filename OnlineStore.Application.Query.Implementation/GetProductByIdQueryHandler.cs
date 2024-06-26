@@ -46,7 +46,6 @@ namespace OnlineShopStore.Application.Query.Implementation
             if (product is null)
                 return new Result<GetProductByIdResponse>(OperationResult.NotFound) { Error = "Product was not found" };
 
-            await _cacheProvider.Set($"{product.Id}", product, TimeSpan.FromDays(1));
             return new Result<GetProductByIdResponse>(OperationResult.Succeeded)
             {
                 Data = new GetProductByIdResponse()
