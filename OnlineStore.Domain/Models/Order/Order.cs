@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShopStore.Domain.DomainModel.Models.Order.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,10 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Order
 {
     public class Order
     {
-        public Order(User.User user, Product.Product product)
+        public Order(User.User? user, Product.Product? product)
         {
+            ValidateUserOrder(user);
+            ValidateProductOrder(product);
             CreationDate = DateTime.Now;
             Buyer = user;
             Product = product;
@@ -21,6 +24,20 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Order
         public long BuyerId { get; private set; }
         public long ProductId { get; private set; }
 
+
+        private void ValidateUserOrder(User.User
+            ? user
+        )
+        {
+            if (user is null)
+                throw new EmptyUserOrderException();
+        }
+
+        private void ValidateProductOrder(Product.Product? product)
+        {
+            if (product is null)
+                throw new EmptyProductOrderException();
+        }
 
         /// <summary>
         /// For EF

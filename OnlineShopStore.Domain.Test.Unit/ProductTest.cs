@@ -7,7 +7,7 @@ namespace OnlineShopStore.Domain.Test.Unit
     public class ProductTest
     {
         [Fact]
-        public void Product_Name_Cannot_Be_Empty_When_Create_New_Product()
+        public void Product_Name_Cannot_Be_Empty_When_Construct_New_Product()
         {
             
             Action createProduct = () => new ProductBuilder()
@@ -20,7 +20,8 @@ namespace OnlineShopStore.Domain.Test.Unit
         public void Product_Name_Must_Be_Less_Than_40_Char()
         {
             Action createProduct = () => new ProductBuilder()
-                .WithTitle("")
+                .WithTitle("1234567890REWYJSDFSDGSDGSDFSDFGSDGSDAGDFHGDSHSFDGJFRJKGHKFHGJKHJGLGHJLGHJLGHJFGHNRYTJTYUTRIYTUIYUTOUYIOIUYTOUIOUYIOUYIOUYIOUYIOUYIO" +
+                           "ASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASD")
                 .Build();
             createProduct.Should().Throw<InvalidProductNameException>();
         }
@@ -36,12 +37,26 @@ namespace OnlineShopStore.Domain.Test.Unit
         }
 
         [Fact]
-        public void Product_Price_Cannot_Be_Zero_When_Constrcut_New_Product()
+        public void Product_Price_Cannot_Be_Zero_When_Construct_New_Product()
         {
             Action createProduct = () => new ProductBuilder()
                 .WithPrice(decimal.Zero)
                 .Build();
             createProduct.Should().Throw<InvalidProductPriceException>();
+        }
+
+        [Fact]
+        public void Discount_Of_Product_Price_Should_Be_Calculate_Properly()
+        {
+            var product = new ProductBuilder()
+                .WithPrice(100)
+                .WithDiscount(20)
+                .Build();
+
+            var finalPrice = product.GetFinalPriceBasedOnDiscount();
+
+            var expectedFinalPrice = 80;
+            finalPrice.Should().Be(expectedFinalPrice);
         }
     }
 }

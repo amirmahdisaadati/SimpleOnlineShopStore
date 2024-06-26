@@ -15,7 +15,7 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product
         {
             ValidateProductTitle(title);
             ValidateProductPrice(price);
-
+            ValidateInventoryCount(inventoryCount);
             Title = title;
             Price = price;
             Discount = discount;
@@ -32,11 +32,7 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product
         public byte[] RowVersion { get; set; }
         #region Methods
 
-        public void IncreaseInventoryCount()
-        {
-            InventoryCount += 1;
-        }
-
+      
         public void DecreaseInventoryCount()
         {
             InventoryCount -= 1;
@@ -44,8 +40,7 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product
 
         public void UpdateInventoryCount(int inventoryCount)
         {
-            if (inventoryCount < 0)
-                throw new InvalidProductInventoryCountException();
+            ValidateInventoryCount(inventoryCount);
             InventoryCount = inventoryCount;
         }
 
@@ -71,6 +66,12 @@ namespace OnlineShopStore.Domain.DomainModel.Models.Product
         {
             if (price == decimal.Zero)
                 throw new InvalidProductPriceException();
+        }
+
+        private void ValidateInventoryCount(int inventoryCount)
+        {
+            if (inventoryCount < 0)
+                throw new InvalidProductInventoryCountException();
         }
 
         #endregion
