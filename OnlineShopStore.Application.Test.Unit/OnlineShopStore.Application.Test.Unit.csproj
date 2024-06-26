@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnlineShopStore.Domain.Test.Unit\OnlineShopStore.Domain.Test.Unit.csproj" />
+    <ProjectReference Include="..\OnlineShopStore.Test.Utils\OnlineShopStore.Test.Utils.csproj" />
     <ProjectReference Include="..\OnlineStore.Application.Command.Contracts\OnlineShopStore.Application.Command.Contracts.csproj" />
     <ProjectReference Include="..\OnlineStore.Application.Command.Implementation\OnlineShopStore.Application.Command.Implementation.csproj" />
     <ProjectReference Include="..\OnlineStore.Application.Query.Contracts\OnlineShopStore.Application.Query.Contracts.csproj" />

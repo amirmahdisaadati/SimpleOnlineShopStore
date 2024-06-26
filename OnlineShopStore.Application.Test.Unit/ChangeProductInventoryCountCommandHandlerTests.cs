@@ -3,7 +3,6 @@ using OnlineShopStore.Application.Command.Contracts.Commands;
 using OnlineShopStore.Application.Command.Implementation;
 using OnlineShopStore.Domain.DomainModel.Models.Product;
 using OnlineShopStore.Domain.DomainModel.Repositories;
-using OnlineShopStore.Domain.Test.Unit.Utils;
 using OnlineShopStore.Infrastructure.Enums;
 using OnlineShopStore.Infrastructure.Persistence.UnitOfWork;
 using System;
@@ -12,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
+using OnlineShopStore.Test.Utils.Utils;
 
 namespace OnlineShopStore.Application.Test.Unit
 {

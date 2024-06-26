@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using OnlineShopStore.Domain.DomainModel.Models.Order.Exceptions;
 using OnlineShopStore.Domain.DomainModel.Models.User.Exeptions;
-using OnlineShopStore.Domain.Test.Unit.Utils;
+using OnlineShopStore.Test.Utils.Utils;
 
 namespace OnlineShopStore.Domain.Test.Unit
 {

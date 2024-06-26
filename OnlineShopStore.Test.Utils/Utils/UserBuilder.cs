@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using OnlineShopStore.Domain.DomainModel.Models.User;
 
-namespace OnlineShopStore.Domain.Test.Unit.Utils
+namespace OnlineShopStore.Test.Utils.Utils
 {
     public class UserBuilder
     {
-        private string _name="TestUser";
+        private string _name = "TestUser";
 
 
         public UserBuilder WithName(string name)
         {
-            this._name=name;
+            _name = name;
             return this;
         }
         public User Build()

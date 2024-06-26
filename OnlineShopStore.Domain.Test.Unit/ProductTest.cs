@@ -1,6 +1,6 @@
 using FluentAssertions;
 using OnlineShopStore.Domain.DomainModel.Models.Product.Exceptions;
-using OnlineShopStore.Domain.Test.Unit.Utils;
+using OnlineShopStore.Test.Utils.Utils;
 
 namespace OnlineShopStore.Domain.Test.Unit
 {
@@ -11,17 +11,17 @@ namespace OnlineShopStore.Domain.Test.Unit
         {
             
             Action createProduct = () => new ProductBuilder()
-                .WithTitle(string.Empty);
+                .WithTitle(string.Empty)
+                .Build();
             createProduct.Should().Throw<EmptyProductNameException>();
 
         }
 
         [Fact]
-        public void Product_Name_Must_Be_Less_Than_40_Char()
+        public void Product_Name_Must_Be_Less_Than_40_Characters()
         {
             Action createProduct = () => new ProductBuilder()
-                .WithTitle("1234567890REWYJSDFSDGSDGSDFSDFGSDGSDAGDFHGDSHSFDGJFRJKGHKFHGJKHJGLGHJLGHJLGHJFGHNRYTJTYUTRIYTUIYUTOUYIOIUYTOUIOUYIOUYIOUYIOUYIOUYIO" +
-                           "ASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASD")
+                .WithTitle(RandomStringGenerator.GenerateRandomString(50))
                 .Build();
             createProduct.Should().Throw<InvalidProductNameException>();
         }

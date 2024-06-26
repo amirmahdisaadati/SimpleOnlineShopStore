@@ -7,23 +7,24 @@ using OnlineShopStore.Domain.DomainModel.Models.Order;
 using OnlineShopStore.Domain.DomainModel.Models.Product;
 using OnlineShopStore.Domain.DomainModel.Models.User;
 
-namespace OnlineShopStore.Domain.Test.Unit.Utils
+
+namespace OnlineShopStore.Test.Utils.Utils
 {
-    public  class OrderBuilder
+    public class OrderBuilder
     {
-        private  User _user=new UserBuilder().Build();
-        private Product _product=new ProductBuilder().Build();
+        private User _user = new UserBuilder().Build();
+        private Product _product = new ProductBuilder().Build();
 
         public OrderBuilder WithUser(User? user)
 
         {
-            this._user = user;
+            _user = user;
             return this;
         }
 
         public OrderBuilder WithProduct(Product product)
         {
-            this._product = product;
+            _product = product;
             return this;
         }
         public Order Build()

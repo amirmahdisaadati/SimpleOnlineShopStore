@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
-using OnlineShopStore.Domain.Test.Unit.Utils;
+using OnlineShopStore.Test.Utils.Utils;
 
 namespace OnlineShopStore.Application.Test.Unit
 {
