@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OnlineShopStore.Infrastructure.Persistence.Exceptions;
 
 namespace OnlineShopStore.Infrastructure.Persistence.UnitOfWork
 {
@@ -19,16 +18,7 @@ namespace OnlineShopStore.Infrastructure.Persistence.UnitOfWork
         }
         public Task<int> CommitAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-
-            try
-            {
-                return _context.SaveChangesAsync(cancellationToken);
-
-            }
-            catch (DbUpdateConcurrencyException e)
-            {
-                throw new EFConcurrencyException();
-            }
+            return _context.SaveChangesAsync(cancellationToken);
 
         }
     }

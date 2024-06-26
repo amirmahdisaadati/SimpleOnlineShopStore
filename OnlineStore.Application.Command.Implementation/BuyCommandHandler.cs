@@ -35,28 +35,36 @@ namespace OnlineShopStore.Application.Command.Implementation
         }
         public async Task<Result<BuyResponse>> Handle(BuyCommand request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.Get(request.UserId);
-            if (user is null)
-                return new Result<BuyResponse>(OperationResult.NotFound) { Error = "User Not Found" };
-            Product product;
-            var cacheProduct = await _cacheProvider.Get<Product>($"{request.ProductId}");
-            if (cacheProduct is null)
+            try
             {
-                product = await _productRepository.Get(request.ProductId); ;
+                var user = await _userRepository.Get(request.UserId);
+                if (user is null)
+                    return new Result<BuyResponse>(OperationResult.NotFound) { Error = "User Not Found" };
+                Product product;
+                var cacheProduct = await _cacheProvider.Get<Product>($"{request.ProductId}");
+                if (cacheProduct is null)
+                {
+                    product = await _productRepository.Get(request.ProductId); ;
+                }
+                else
+                {
+                    product = cacheProduct;
+                }
+
+                if (product is null)
+                    return new Result<BuyResponse>(OperationResult.NotFound) { Error = "Product Not Found" };
+
+                var order = new Order(user, product);
+                user.Buy(order);
+                await _orderRepository.Add(order);
+                await _unitOfWork.CommitAsync(cancellationToken);
+                return new Result<BuyResponse>(OperationResult.Succeeded) { Data = new BuyResponse() };
             }
-            else
+            catch (DbUpdateConcurrencyException e)
             {
-                product = cacheProduct;
+                return new Result<BuyResponse>(OperationResult.Failed) { Error = "Concurrency Error,Please Try Again Later" };
             }
-
-            if (product is null)
-                return new Result<BuyResponse>(OperationResult.NotFound) { Error = "Product Not Found" };
-
-            var order = new Order(user, product);
-            user.Buy(order);
-            await _orderRepository.Add(order);
-            await _unitOfWork.CommitAsync(cancellationToken);
-            return new Result<BuyResponse>(OperationResult.Succeeded) { Data = new BuyResponse() };
+            
 
 
         }

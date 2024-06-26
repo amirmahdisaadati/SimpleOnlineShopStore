@@ -13,8 +13,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 using OnlineShopStore.Domain.DomainModel.Models.Order;
 using OnlineShopStore.Test.Utils.Utils;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using OnlineShopStore.Domain.DomainModel.Models.Product.Exceptions;
 
 namespace OnlineShopStore.Application.Test.Unit
 {
@@ -112,6 +115,31 @@ namespace OnlineShopStore.Application.Test.Unit
             _mockProductRepository.Verify(repo => repo.Get(command.ProductId), Times.Once);
             _mockOrderRepository.Verify(repo => repo.Add(It.IsAny<Order>()), Times.Once);
             _mockUnitOfWork.Verify(uow => uow.CommitAsync(It.IsAny<CancellationToken>()), Times.Once);
+        }
+
+        [Fact]
+        public async Task Handle_WhenConcurrencyExceptionOccurs_ReturnsFailedResult()
+        {
+            var command = new BuyCommand { UserId = 1, ProductId = 1 };
+            var userId = 1;
+            var productId = 1;
+            var user = new UserBuilder().Build();
+            var product=new ProductBuilder().Build();
+            _mockUserRepository.Setup(repo => repo.Get(command.UserId)).ReturnsAsync(user);
+            _mockProductRepository.Setup(repo => repo.Get(productId)).ReturnsAsync(product);
+            _mockUnitOfWork.Setup(uow => uow.CommitAsync(It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new DbUpdateConcurrencyException());
+            _mockCacheProvider.Setup(cache => cache.Get<Product>(It.IsAny<string>())).ReturnsAsync((Product)null);
+
+            var result = await _handler.Handle(command, CancellationToken.None);
+
+            // Assert
+            var expectedOperationResult = OperationResult.Failed;
+            result.OperationResult.Should().Be(expectedOperationResult);
+            result.Error.Should().NotBeEmpty();
+
+
+
         }
 
     }
