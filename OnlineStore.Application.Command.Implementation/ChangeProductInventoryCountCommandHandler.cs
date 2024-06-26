@@ -28,7 +28,7 @@ namespace OnlineShopStore.Application.Command.Implementation
             if (product is null)
                 return new Result<ChangeProductInventoryCountResponse>(OperationResult.NotFound) { Error = "Product was not found" };
             product.UpdateInventoryCount(request.InventoryCount);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.CommitAsync(cancellationToken);
             return new Result<ChangeProductInventoryCountResponse>(OperationResult.Succeeded) { Data = new ChangeProductInventoryCountResponse() };
 
         }

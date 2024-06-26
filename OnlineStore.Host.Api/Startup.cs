@@ -14,6 +14,7 @@ using OnlineShopStore.Application.Command.Contracts.Commands;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineShopStore.Application.Command.Implementation;
 using OnlineShopStore.Application.Query.Implementation;
+using OnlineShopStore.Infrastructure.Cache;
 
 namespace OnlineShopStore.Host.Api
 {
@@ -35,6 +36,7 @@ namespace OnlineShopStore.Host.Api
             ConfigureMediator(services);
             ConfigureUnitOfWork(services);
             ConfigureRepositories(services);
+            ConfigureCacheInfraStructure(services);
         }
 
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
@@ -95,6 +97,11 @@ namespace OnlineShopStore.Host.Api
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
+        }
+
+        private void ConfigureCacheInfraStructure(IServiceCollection services)
+        {
+            services.AddScoped<ICacheProvider, RedisCacheProvider>();
         }
 
     }

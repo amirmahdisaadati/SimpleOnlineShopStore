@@ -38,7 +38,7 @@ namespace OnlineShopStore.Domain.DomainModel.Models.User
 
         #region Validation
 
-        public void ValidateUserName(string userName)
+        private void ValidateUserName(string userName)
         {
             if (string.IsNullOrWhiteSpace(userName))
                 throw new EmptyUserNameException();

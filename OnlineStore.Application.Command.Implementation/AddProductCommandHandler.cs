@@ -31,7 +31,7 @@ namespace OnlineShopStore.Application.Command.Implementation
                 return new Result<AddProductResponse>(OperationResult.NotValid) { Error = "Product Name Must Be Unique" };
             var product = new Product(request.Title, request.Price, request.Discount, request.InventoryCount);
             await _productRepository.Add(product);
-            _ = await _unitOfWork.SaveChangesAsync(cancellationToken);
+            _ = await _unitOfWork.CommitAsync(cancellationToken);
             return new Result<AddProductResponse>(OperationResult.Succeeded) { Data = new AddProductResponse() };
         }
     }

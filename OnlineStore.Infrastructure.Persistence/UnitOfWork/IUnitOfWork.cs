@@ -8,6 +8,6 @@ namespace OnlineShopStore.Infrastructure.Persistence.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken());
+        Task<int> CommitAsync(CancellationToken cancellationToken = new CancellationToken());
     }
 }

@@ -1,9 +1,11 @@
-﻿using OnlineShopStore.Infrastructure.Persistence.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineShopStore.Infrastructure.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OnlineShopStore.Infrastructure.Persistence.Exceptions;
 
 namespace OnlineShopStore.Infrastructure.Persistence.UnitOfWork
 {
@@ -15,9 +17,19 @@ namespace OnlineShopStore.Infrastructure.Persistence.UnitOfWork
         {
             _context = context;
         }
-        public Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        public Task<int> CommitAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            return _context.SaveChangesAsync(cancellationToken);
+
+            try
+            {
+                return _context.SaveChangesAsync(cancellationToken);
+
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new EFConcurrencyException();
+            }
+
         }
     }
 }
