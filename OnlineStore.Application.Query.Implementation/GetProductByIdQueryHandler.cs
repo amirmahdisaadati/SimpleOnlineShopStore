@@ -4,8 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.IdentityModel.Tokens;
 using OnlineShopStore.Application.Query.Contracts.Queries;
+using OnlineShopStore.Domain.DomainModel.Models.Product;
 using OnlineShopStore.Domain.DomainModel.Repositories;
+using OnlineShopStore.Infrastructure.Cache;
 using OnlineShopStore.Infrastructure.Enums;
 using OnlineShopStore.Infrastructure.Shared;
 
@@ -15,17 +18,35 @@ namespace OnlineShopStore.Application.Query.Implementation
     {
 
         private readonly IProductRepository _productRepository;
-
-        public GetProductByIdQueryHandler(IProductRepository productRepository)
+        private readonly ICacheProvider _cacheProvider;
+        public GetProductByIdQueryHandler(IProductRepository productRepository,ICacheProvider cacheProvider)
         {
             _productRepository = productRepository;
+            _cacheProvider = cacheProvider;
         }
 
         public async Task<Result<GetProductByIdResponse>> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
+            var cacheProduct = await _cacheProvider.Get<Product>($"{request.ProductId}");
+            if (cacheProduct is not null)
+            {
+                return new Result<GetProductByIdResponse>(OperationResult.Succeeded)
+                {
+                    Data = new GetProductByIdResponse()
+                    {
+                        Discount = cacheProduct.Discount,
+                        OriginalPrice = cacheProduct.Price,
+                        Title = cacheProduct.Title,
+                        FinalPrice = cacheProduct.GetFinalPriceBasedOnDiscount()
+                    }
+                };
+            }
             var product = await _productRepository.Get(request.ProductId);
+           
             if (product is null)
                 return new Result<GetProductByIdResponse>(OperationResult.NotFound) { Error = "Product was not found" };
+
+            await _cacheProvider.Set($"{product.Id}", product, TimeSpan.FromDays(1));
             return new Result<GetProductByIdResponse>(OperationResult.Succeeded)
             {
                 Data = new GetProductByIdResponse()

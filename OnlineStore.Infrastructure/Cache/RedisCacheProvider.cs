@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using RedLockNet.SERedis;
 using RedLockNet.SERedis.Configuration;
 using StackExchange.Redis;
@@ -15,10 +16,12 @@ namespace OnlineShopStore.Infrastructure.Cache
     {
         private readonly RedLockFactory _redLockFactory;
         private readonly IDatabase _database;
+        private readonly string _connection;
 
-        public RedisCacheProvider()
+        public RedisCacheProvider(IOptions<RedisConfig> redisConfig)
         {
-            var connectionMult = ConnectionMultiplexer.Connect("");
+            _connection = redisConfig.Value.RedisConnection;
+            var connectionMult = ConnectionMultiplexer.Connect(_connection);
             _database = connectionMult.GetDatabase();
 
             var redisEndpoints = new List<RedLockMultiplexer>

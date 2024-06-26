@@ -37,6 +37,7 @@ namespace OnlineShopStore.Host.Api
             ConfigureUnitOfWork(services);
             ConfigureRepositories(services);
             ConfigureCacheInfraStructure(services);
+            ConfigureRedis(services);
         }
 
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
@@ -102,6 +103,12 @@ namespace OnlineShopStore.Host.Api
         private void ConfigureCacheInfraStructure(IServiceCollection services)
         {
             services.AddScoped<ICacheProvider, RedisCacheProvider>();
+        }
+
+        private void ConfigureRedis(IServiceCollection services)
+        {
+            services.Configure<RedisConfig>
+                (Configuration.GetSection(nameof(RedisConfig)));
         }
 
     }
