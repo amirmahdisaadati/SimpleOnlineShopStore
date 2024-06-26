@@ -29,7 +29,7 @@ namespace OnlineShopStore.Application.Command.Implementation
                 return new Result<ChangeProductInventoryCountResponse>(OperationResult.NotFound) { Error = "Product was not found" };
             product.UpdateInventoryCount(request.InventoryCount);
             await _unitOfWork.CommitAsync(cancellationToken);
-            return new Result<ChangeProductInventoryCountResponse>(OperationResult.Succeeded) { Data = new ChangeProductInventoryCountResponse() };
+            return new Result<ChangeProductInventoryCountResponse>(OperationResult.Succeeded) { Data = new ChangeProductInventoryCountResponse(){ IsSuccess = true} };
 
         }
     }

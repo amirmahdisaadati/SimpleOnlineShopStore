@@ -58,7 +58,7 @@ namespace OnlineShopStore.Application.Command.Implementation
                 user.Buy(order);
                 await _orderRepository.Add(order);
                 await _unitOfWork.CommitAsync(cancellationToken);
-                return new Result<BuyResponse>(OperationResult.Succeeded) { Data = new BuyResponse() };
+                return new Result<BuyResponse>(OperationResult.Succeeded) { Data = new BuyResponse() { IsSuccess = true } };
             }
             catch (DbUpdateConcurrencyException e)
             {

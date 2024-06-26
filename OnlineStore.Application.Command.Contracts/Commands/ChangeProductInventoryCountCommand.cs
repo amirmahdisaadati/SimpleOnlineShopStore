@@ -16,6 +16,6 @@ namespace OnlineShopStore.Application.Command.Contracts.Commands
 
     public class ChangeProductInventoryCountResponse
     {
-
+        public bool IsSuccess { get; set; }
     }
 }

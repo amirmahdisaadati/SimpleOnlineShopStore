@@ -17,6 +17,6 @@ namespace OnlineShopStore.Application.Command.Contracts.Commands
 
     public class BuyResponse
     {
-
+        public bool IsSuccess { get; set; }
     }
 }

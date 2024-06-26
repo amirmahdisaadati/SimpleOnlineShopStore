@@ -37,7 +37,7 @@ namespace OnlineShopStore.Application.Command.Implementation
             var setCacheTask = _cacheProvider.Set($"{product.Id}", product, TimeSpan.FromDays(1));
             var commitTask = _unitOfWork.CommitAsync(cancellationToken);
             await Task.WhenAll(addProductTask, setCacheTask, commitTask);
-            return new Result<AddProductResponse>(OperationResult.Succeeded) { Data = new AddProductResponse() };
+            return new Result<AddProductResponse>(OperationResult.Succeeded) { Data = new AddProductResponse(){IsSuccess = true} };
         }
     }
 }

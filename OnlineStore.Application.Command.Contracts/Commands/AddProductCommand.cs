@@ -20,6 +20,6 @@ namespace OnlineShopStore.Application.Command.Contracts.Commands
 
     public class AddProductResponse
     {
-
+        public bool IsSuccess { get; set; }
     }
 }
